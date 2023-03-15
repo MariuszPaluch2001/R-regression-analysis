@@ -18,8 +18,8 @@ Linear_Regression <- setRefClass("Linear_Regression",
         return (X %*% weights + bias)
     },
     
-    calc_accuracy = function(y_pred, y_true) {
-	return (sum(y_pred == y_true) / length(y_true))
+    calc_loss = function(X, y_true) {
+	return (sum((t(predict(X)) - y_true)^2) / length(y_true))
     }
     
   )
